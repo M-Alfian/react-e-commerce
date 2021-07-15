@@ -1,0 +1,8 @@
+.select {
+  padding: 5px;
+  margin: 10px;
+}
+
+.select option {
+  padding: 10px;
+}

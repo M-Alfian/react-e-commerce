@@ -1,0 +1,44 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description button {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: rgb(0, 158, 221);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.description button:hover {
+  background: rgb(0, 183, 255);
+}
+
+.description span {
+  font-weight: bold;
+}
+
+.description h3 {
+  font-size: 20px;
+}
+
+.description {
+  padding: 10px 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .detail {
+    flex-direction: row;
+  }
+}

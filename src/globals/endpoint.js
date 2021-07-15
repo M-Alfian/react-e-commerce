@@ -1,0 +1,1 @@
+export const LOCAL_END_POINT = 'http://localhost:1337'

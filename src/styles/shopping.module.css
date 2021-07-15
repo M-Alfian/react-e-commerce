@@ -1,0 +1,82 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+  border: 2px solid rgb(0, 174, 255);
+}
+
+.description {
+  flex-grow: 4;
+  padding: 0 15px;
+}
+
+.actionContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 6px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.cardImage {
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.actionContainer p {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.actionContainer button {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  background: #fff;
+}
+
+.buttonDelete {
+  border: 2px solid rgb(255, 0, 0);
+  background: #fff;
+  color: rgb(255, 0, 0);
+}
+
+.buttonPayment {
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid rgb(0, 152, 253);
+  background: #fff;
+  color: rgb(0, 152, 253);
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    grid-template-columns: auto auto 300px;
+  }
+
+  .cardImage {
+    margin: 0;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .description h2 {
+    padding: 0 10px;
+  }
+}

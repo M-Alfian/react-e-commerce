@@ -1,0 +1,51 @@
+.card {
+  background: rgb(231, 231, 231);
+  border-radius: 5px;
+}
+
+.cardImage {
+  background: rgb(243, 243, 243);
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.cardDesc {
+  position: relative;
+  padding: 10px;
+}
+
+.cardDesc p {
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.cardDesc h2 {
+  font-size: 16px;
+}
+
+.cardDesc span {
+  background: #fff;
+  padding: 5px 8px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 600px) {
+  .cardDesc p span {
+    font-size: 16px;
+  }
+
+  .cardDesc h2 {
+    font-size: 24px;
+  }
+
+}

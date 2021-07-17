@@ -3,6 +3,9 @@ import Button from "../components/button/button"
 import { ShoppingListContext } from "../utils/AppContext"
 import styles from '../styles/shopping.module.css'
 import { LOCAL_END_POINT } from "../globals/endpoint"
+import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCartArrowDown, faTrash } from "@fortawesome/free-solid-svg-icons"
 
 export default function Shopping() {
   const { cartItemLists, setCartItemLists } = useContext(ShoppingListContext)
@@ -40,33 +43,44 @@ export default function Shopping() {
 
   return (
     <div className={styles.container}>
-    <h2 className={styles.headingTitle}>Shopping List</h2>
-      {cartItemLists.map(({ id, title, price, image, qty }) => (
-        <div key={id} className={styles.card}>
-          <img 
-            src={`${LOCAL_END_POINT}${image.url}`} 
-            width={100}
-            height={100}
-            alt={title} 
-            className={styles.cardImage}
-            />
-          <div className={styles.description}>
-            <h2>{title}</h2>
-            <p>$ {price}</p>
+      {cartItemLists.length > 0 ? 
+        cartItemLists.map(({ id, title, price, image, qty }) => (
+          <div key={id} className={styles.card}>
+            <img 
+              src={`${LOCAL_END_POINT}${image.url}`} 
+              width={100}
+              height={100}
+              alt={title} 
+              className={styles.cardImage}
+              />
+            <div className={styles.description}>
+              <h2>{title}</h2>
+              <p>$ {price}</p>
+            </div>
+            <div className={styles.actionContainer}>
+              {qty > 1 && <Button plus={false} onClick={() => handleMinusClick(id)}/>}
+              <p>{qty} {qty > 1 ? 'items' : 'item'}</p>
+              <Button plus={true} onClick={() => handlePlusClick(id)}/>
+              <button 
+                onClick={() => handleDeleteItemList(id)}
+                className={styles.buttonDelete}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+              </button>
+            </div>
           </div>
-          <div className={styles.actionContainer}>
-            {qty > 1 && <Button plus={false} onClick={() => handleMinusClick(id)}/>}
-            <p>{qty} {qty > 1 ? 'items' : 'item'}</p>
-            <Button plus={true} onClick={() => handlePlusClick(id)}/>
-            <button 
-              onClick={() => handleDeleteItemList(id)}
-              className={styles.buttonDelete}
-              >
-                Delete
+        )) 
+        : (
+          <div className={styles.emptyListContainer}>
+            <h4>Shopping list is empty</h4>
+            <button className={styles.shopButton}>
+              <Link to='/'>
+                <FontAwesomeIcon icon={faCartArrowDown} />
+                <span> shopping now</span>
+              </Link>
             </button>
           </div>
-        </div>
-      ))}
+        )}
       {total > 0 && <button className={styles.buttonPayment}>Payment ${total.toFixed(2)}</button>}
     </div>
   )

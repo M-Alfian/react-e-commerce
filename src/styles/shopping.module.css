@@ -4,6 +4,13 @@
   padding: 20px;
 }
 
+.emptyListContainer {
+  height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .card {
   display: grid;
   grid-template-columns: auto;
@@ -38,25 +45,47 @@
 }
 
 .actionContainer button {
-  padding: 10px;
+  margin: 0 auto;
+  width: 45px;
+  height: 45px;
   font-weight: bold;
   font-size: 16px;
-  background: #fff;
+  border: none;
+  border-radius: 50%;
+  transition: all .2s ease;
+  cursor: pointer;
+  background: rgb(248, 248, 248);
+  color: rgb(0, 0, 0);
+}
+
+.actionContainer button:hover {
+  color: rgb(255, 0, 0);
+  border-color: rgb(255, 255, 255);
 }
 
 .buttonDelete {
-  border: 2px solid rgb(255, 0, 0);
-  background: #fff;
   color: rgb(255, 0, 0);
+}
+
+.buttonDelete:hover {
+  border: 2px solid red !important;
+  background: #fff !important;
+  color: red !important;
 }
 
 .buttonPayment {
   padding: 12px 20px;
-  font-weight: bold;
   font-size: 16px;
-  border: 2px solid rgb(0, 152, 253);
+  border: 2px solid rgb(0, 0, 0);
   background: #fff;
-  color: rgb(0, 152, 253);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.shopButton {
+  padding: 10px 13px;
+  background-color: #fff;
+  border: 2px solid black;
 }
 
 @media screen and (min-width: 600px) {
@@ -66,6 +95,7 @@
 
   .cardImage {
     margin: 0;
+    background: rgb(228, 228, 228);
   }
 
   .description {

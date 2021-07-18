@@ -1,8 +1,10 @@
 import { LOCAL_END_POINT } from "../../globals/endpoint"
 import { Link } from 'react-router-dom'
 import styles from './card.module.css'
+import { useState } from "react"
 
 export default function Card({ id, title, price, description, image }) {
+  const [load, setLoad] = useState(false)
 
   return (
     <>
@@ -10,7 +12,8 @@ export default function Card({ id, title, price, description, image }) {
         <img 
           src={`${LOCAL_END_POINT}${image.url}`} 
           alt={image.name}
-          className={styles.cardImage}
+          onLoad={() => setLoad(true)}
+          className={`${load ? styles.cardImage : styles.cardImageHidden}`}
           />
         <div className={styles.cardDesc}>
           <Link to={{ pathname: '/detail', state: { id: id }}}>

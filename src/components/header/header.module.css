@@ -1,14 +1,14 @@
 .header {
   padding: 10px;
-  background: rgb(47, 172, 255);
-  color: #fff;
+  background: rgb(0, 122, 204);
+  color: rgb(255, 255, 255);
 }
 
 .header a {
   color: #fff;
   padding: 10px;
   margin: 0 5px;
-  background-color: rgba(58, 189, 250, 0.548);
+  background-color: rgba(0, 65, 95, 0.158);
   border-radius: 10px;
   border: 2px solid transparent;
   transition: all .3s ease;
@@ -35,6 +35,7 @@
 .title {
   padding: 10px 0;
   margin: 0 10px;
+  font-size: 28px;
 }
 
 .icon {

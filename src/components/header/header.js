@@ -10,14 +10,14 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <h1 className={styles.title}>Code Shop</h1>
+        <h1 className={styles.title} tabIndex={0}>Code Shop</h1>
         <nav className={styles.nav}>
-          <Link to='/'>
-            <FontAwesomeIcon icon={faHome} size='lg'/>
+          <Link to='/' aria-label='link to home' tabIndex={0}>
+            <FontAwesomeIcon icon={faHome} size='lg' aria-hidden={false} />
           </Link>
-          <Link to='/shopping'>
-            <FontAwesomeIcon icon={faShoppingCart} size='lg' />
-            <span className={styles.icon}>{cartItemLists.length}</span>
+          <Link to='/shopping' aria-label='link to cart' tabIndex={0}>
+            <FontAwesomeIcon icon={faShoppingCart} size='lg' aria-hidden={false} />
+            {cartItemLists.length > 0 && <span className={styles.icon}>{cartItemLists.length}</span>}
           </Link>
         </nav>
       </div>

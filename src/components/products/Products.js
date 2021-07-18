@@ -1,10 +1,11 @@
+import { useContext, useEffect, useState } from 'react'
+import { ProductsContext } from '../../utils/AppContext'
 import Card from '../card/Card'
 import Filter from '../filter/filter'
 import styles from './products.module.css'
-import { useContext, useEffect, useState } from 'react'
-import { ProductsContext } from '../../utils/AppContext'
 import DbSources from '../../globals/DbSources'
 import Skeleton from '../skeleton/skeleton'
+import Search from '../search/search'
 
 export default function Products() {
   const { products, setProducts } = useContext(ProductsContext)
@@ -14,31 +15,29 @@ export default function Products() {
     const getProductList = async () => {
       setIsLoading(true)
       const data = await DbSources.getAllProducts()
-      setTimeout(() => {
-        setProducts(data)
-        setIsLoading(false)
-      }, 1000)
+      setProducts(data)
+      setIsLoading(false)
     }
     getProductList()
   }, [setProducts])
 
   return (
     <div className={styles.container}>
-      <Filter setIsLoading={setIsLoading}/>
+      <Search setIsLoading={setIsLoading} />
+      <Filter setIsLoading={setIsLoading} />
       <div className={styles.grid}>
-        {isLoading && Array(10).fill().map((value, index) => (
-          <Skeleton key={index}/> 
-        ))}
+        {isLoading && <Skeleton />}
         {products && products.map(({ id, title, description, price, image }) => (
           <Card 
-            id={id}
-            key={id}
-            title={title}
-            price={price}
-            description={description}
-            image={image}
-            />
-        ))}
+          id={id}
+          key={id}
+          title={title}
+          price={price}
+          description={description}
+          image={image}
+          />
+          ))}
+        {products && products.length === 0 && <p>product is not found</p>}
       </div>
     </div>
   )

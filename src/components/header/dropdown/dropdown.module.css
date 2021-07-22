@@ -1,0 +1,39 @@
+.container {
+  display: none;
+  position: absolute;
+}
+
+.open {
+  display: flex;
+  right: 0;
+  top: 60px;
+  z-index: 99;
+  transition: all .5s ease;
+}
+
+.container ul {
+  background: #fff;
+  color: #000000;
+  width: 200px;
+  margin: 10px;
+  padding: 15px 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 0 10px;
+  list-style-type: none;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.container ul li:hover {
+  background-color: rgba(2, 2, 2, 0.062);
+}

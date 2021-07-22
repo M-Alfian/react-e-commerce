@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import DbSources from '../../globals/DbSources'
 import { ProductsContext } from '../../utils/AppContext'
 import styles from './filter.module.css'
@@ -12,7 +12,6 @@ export default function Filter({ setIsLoading }) {
     setValue(event.target.value)
   }
 
-  
   useEffect(() => {
     const getCategoriesList = async () => {
       const categoriesList = await DbSources.getCategories()
@@ -20,20 +19,20 @@ export default function Filter({ setIsLoading }) {
     }
     getCategoriesList()
   }, [])
-  
+
   useEffect(() => {
     const getProductsCategories = async () => {
       setProducts([])
       setIsLoading((current) => !current)
-      
+
       if (value && value !== 'All') {
-        const [ list ] = await DbSources.getProductByCategories(value)
+        const [list] = await DbSources.getProductByCategories(value)
         setTimeout(() => {
           setProducts(list.products)
           setIsLoading((current) => !current)
         }, 1000);
       }
-      
+
       if (value && value === 'All') {
         const products = await DbSources.getAllProducts()
         setTimeout(() => {

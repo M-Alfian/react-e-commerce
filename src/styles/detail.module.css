@@ -1,14 +1,7 @@
-.container {
-  margin: 0 auto;
-  max-width: 1200px;
-  min-height: 80vh;
-}
-
 .detail {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 
 .detailImage {

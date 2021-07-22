@@ -23,13 +23,14 @@
   max-width: 1200px;
 }
 
-.header a:hover {
+.header a:hover, .header span:hover {
   border-color: #fff;
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
+  transition: all .3s ease;
 }
 
 .title {
